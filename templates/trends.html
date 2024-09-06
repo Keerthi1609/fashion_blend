@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Trend Predictor</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .trend-predictor-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .trend-predictor-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .trend-predictor-section ul {
+            font-size: 1.2rem;
+            list-style-type: none;
+            padding: 0;
+        }
+        .trend-predictor-section li {
+            margin-bottom: 10px;
+        }
+        .btn-back {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="trend-predictor-section text-center">
+            <h2>Latest Fashion Trends</h2>
+            <ul>
+                {% for trend in trends %}
+                    <li>{{ trend }}</li>
+                {% endfor %}
+            </ul>
+            <a href="{{ url_for('index') }}" class="btn btn-secondary btn-back">Go Back</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

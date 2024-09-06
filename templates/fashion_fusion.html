@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Fusion - Blend Your Style</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <div class="card-body">
+                <h2 class="card-title text-center">Blend Your Style</h2>
+                <form method="POST" action="{{ url_for('blend') }}">
+                    <div class="form-group">
+                        <label for="profile1">Select First Profile</label>
+                        <select class="form-control" id="profile1" name="profile1">
+                            {% for profile in profiles %}
+                                <option value="{{ profile }}">{{ profile }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="profile2">Select Second Profile</label>
+                        <select class="form-control" id="profile2" name="profile2">
+                            {% for profile in profiles %}
+                                <option value="{{ profile }}">{{ profile }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Blend Styles</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
